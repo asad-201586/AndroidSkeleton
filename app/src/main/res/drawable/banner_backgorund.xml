@@ -1,0 +1,26 @@
+<!--
+  ~ /**
+  ~
+  ~ * Webkul Software.
+  ~
+  ~ * @package Mobikul App
+  ~
+  ~ * @Category Mobikul
+  ~
+  ~ * @author Webkul <support@webkul.com>
+  ~
+  ~ * @Copyright (c) Webkul Software Private Limited (https://webkul.com)
+  ~
+  ~ * @license https://store.webkul.com/license.html ASL Licence
+  ~
+  ~ * @link https://store.webkul.com/license.html
+  ~
+  ~      Last modified 2/12/19 9:31 PM
+  ~ */
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/_8sdp" />
+    <solid android:color="@color/white" />
+</shape>
