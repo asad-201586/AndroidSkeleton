@@ -1,4 +1,4 @@
-package com.example.testproject.ui.home.repo
+package com.example.testproject.ui.home
 
 import com.example.testproject.app.getPref
 import com.example.testproject.network.apiHitter
