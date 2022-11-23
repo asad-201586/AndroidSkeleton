@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="viewModel"
-            type="com.example.testproject.base.CommonViewModel" />
+            type="com.example.testproject.base.SharedViewModel" />
         <variable
             name="fragment"
             type="com.example.testproject.ui.home.HomeFragment" />
     </data>
 
 
-    <RelativeLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiprefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Home Fragment"/>
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
+            <!--next feature-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/category_rv"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/item_featured_category"
+                android:orientation="horizontal"
+                tools:itemCount="10"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </layout>

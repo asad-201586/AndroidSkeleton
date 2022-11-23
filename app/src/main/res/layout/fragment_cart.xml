@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.testproject.base.CommonViewModel" />
+            type="com.example.testproject.base.SharedViewModel" />
         <variable
             name="fragment"
             type="com.example.testproject.ui.cart.CartFragment" />

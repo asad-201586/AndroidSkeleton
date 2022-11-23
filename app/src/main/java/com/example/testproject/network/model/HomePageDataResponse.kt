@@ -364,7 +364,7 @@ data class HomePageDataResponse(
         ) {
             data class Comments(
                 @SerializedName("avg_rating")
-                val avgRating: Int
+                val avgRating: Double
             )
         }
     }

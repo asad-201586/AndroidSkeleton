@@ -50,6 +50,8 @@ class Api {
     companion object {
 
         const val BASE_URL = "https://rflbestbuy.com/"
+        const val STORE_FRONT_ID = "3"
+        const val TOKEN = "Bearer bWlzNTdAcHJhbmdyb3VwLmNvbTpJWE94N1NVUFYwYUE0Rjg4Nmg4bno5V2I2STUzNTNBQQ=="
 
         private val service by lazy { Api().createService() }
 

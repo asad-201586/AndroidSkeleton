@@ -9,18 +9,11 @@ import com.example.testproject.network.model.HomePageDataResponse
 
 class HomeViewModel: BaseViewModel() {
 
-    private val _homeData = MutableLiveData<HomePageDataResponse>()
-    private val homeData: LiveData<HomePageDataResponse> = _homeData
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    fun getHomePageData() = liveData<Resource<HomePageDataResponse>> {
-        try {
-            emit(Resource.Loading)
-            val avatar = getHomeRepo().getHomePageData()
-            emit(Resource.Success(avatar))
-            //_homeData.value = avatar
-        } catch (exception: Exception) {
-            emit(Resource.Error(exception.localizedMessage))
-        }
+    fun setLoadingStatus(status: Boolean) {
+        _isLoading.value = status
     }
 
 }

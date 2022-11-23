@@ -7,14 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.testproject.base.CommonViewModel
+import com.example.testproject.base.SharedViewModel
 import com.example.testproject.databinding.FragmentCartBinding
 import com.google.gson.Gson
+import com.orhanobut.logger.Logger
 
 class CartFragment : Fragment() {
 
     private lateinit var binding: FragmentCartBinding
-    private val sharedViewModel: CommonViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +34,10 @@ class CartFragment : Fragment() {
             fragment = this@CartFragment
         }
 
-        Log.d("share_db", "onViewCreated: isHomePageDataAvailable: ${sharedViewModel.isHomePageDataAvailable()}")
+        Log.d("my_data", "onViewCreated: isHomePageDataAvailable: ${sharedViewModel.isHomePageDataAvailable()}")
         if (sharedViewModel.isHomePageDataAvailable()) {
-            Log.d("share_db", "onViewCreated: SHARE -> ${Gson().toJson(sharedViewModel.homeData)}")
+            //Log.d("share_db", "onViewCreated: SHARE -> ${Gson().toJson(sharedViewModel.homeData)}")
+            Logger.json(Gson().toJson(sharedViewModel.homeData))
         }
 
     }

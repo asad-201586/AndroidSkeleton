@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~
+  ~ * Webkul Software.
+  ~
+  ~ * @package Mobikul App
+  ~
+  ~ * @Category Mobikul
+  ~
+  ~ * @author Webkul <support@webkul.com>
+  ~
+  ~ * @Copyright (c) Webkul Software Private Limited (https://webkul.com)
+  ~
+  ~ * @license https://store.webkul.com/license.html ASL Licence
+  ~
+  ~ * @link https://store.webkul.com/license.html
+  ~
+  ~      Last modified 28/5/20 1:13 PM
+  ~ */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="categoryData"
+            type="com.example.testproject.network.model.HomePageCategoryResponse.Data" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_gravity="center_horizontal"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="20dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp">
+
+            <ImageView
+                android:id="@+id/zoomImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/placeholder" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/category_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="@{categoryData.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            tools:text="Cake and Pastry" />
+
+    </LinearLayout>
+
+</layout>
