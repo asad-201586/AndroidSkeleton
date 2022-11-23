@@ -12,12 +12,12 @@ class HomeViewModel: BaseViewModel() {
     private val _homeData = MutableLiveData<HomePageDataResponse>()
     private val homeData: LiveData<HomePageDataResponse> = _homeData
 
-    fun getHomePageData(customerId: String) = liveData<Resource<HomePageDataResponse>> {
+    fun getHomePageData() = liveData<Resource<HomePageDataResponse>> {
         try {
             emit(Resource.Loading)
-            val avatar = getHomeRepo().getHomePageData(customerId)
+            val avatar = getHomeRepo().getHomePageData()
             emit(Resource.Success(avatar))
-            _homeData.value = avatar
+            //_homeData.value = avatar
         } catch (exception: Exception) {
             emit(Resource.Error(exception.localizedMessage))
         }

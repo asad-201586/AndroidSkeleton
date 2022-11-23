@@ -11,7 +11,7 @@ interface ApiInterface {
     @GET(HOME_PAGE_DATA)
     suspend fun getHomePageData(
         @Header("Authorization") authkey: String?,
-        @Path("customerId") customerId: String?,
+        @Header("ACCEPT") applicationType: String?,
         @Query("width") width: Int,
         @Query("lang_code") langCode: String?,
         @Query("currency_code") currencyCode: String?,

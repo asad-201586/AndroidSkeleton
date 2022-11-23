@@ -8,12 +8,12 @@ class HomeRepo {
 
     private val token = "bWlzNTdAcHJhbmdyb3VwLmNvbTpJWE94N1NVUFYwYUE0Rjg4Nmg4bno5V2I2STUzNTNBQQ=="
 
-    suspend fun getHomePageData(customerId: String) = apiHitter().getHomePageData(
+    suspend fun getHomePageData() = apiHitter().getHomePageData(
         authkey = token
-        , customerId = customerId
-        , width = 1081
+        , applicationType = "application/json"
+        , width = 720
         , langCode = "en"
-        , currencyCode = "BD"
+        , currencyCode = "BDT"
         , storeFrontId = "3"
     )
 

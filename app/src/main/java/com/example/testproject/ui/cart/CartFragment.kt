@@ -1,6 +1,7 @@
 package com.example.testproject.ui.cart
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.testproject.base.CommonViewModel
 import com.example.testproject.databinding.FragmentCartBinding
+import com.google.gson.Gson
 
 class CartFragment : Fragment() {
 
@@ -30,5 +32,11 @@ class CartFragment : Fragment() {
             viewModel = sharedViewModel
             fragment = this@CartFragment
         }
+
+        Log.d("share_db", "onViewCreated: isHomePageDataAvailable: ${sharedViewModel.isHomePageDataAvailable()}")
+        if (sharedViewModel.isHomePageDataAvailable()) {
+            Log.d("share_db", "onViewCreated: SHARE -> ${Gson().toJson(sharedViewModel.homeData)}")
+        }
+
     }
 }

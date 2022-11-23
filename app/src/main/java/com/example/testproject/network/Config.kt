@@ -1,6 +1,6 @@
 package com.example.testproject.network
 
-const val HOME_PAGE_DATA = "api/homepage25/{customerId}"
+const val HOME_PAGE_DATA = "api/homepage25/"
 const val SEARCH_SUGGESTION = "api/GetSearchSuggestion/"
 const val CATEGORY_BY_ID = "api/CategoriesApi/{categoryId}"
 const val HOME_PAGE_PRODUCT_DATA = "api/HomepageProducts/{pageId}"
