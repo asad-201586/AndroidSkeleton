@@ -10,8 +10,8 @@ class CategoryAdapter: BaseAdapter<HomePageCategoryResponse.Data>(R.layout.item_
     override fun onBindViewHolder(holder: IViewHolder, position: Int) {
         val item = list[position]
         //val binding = ItemFeaturedCategoryBinding.bind(holder.itemView)
-        val binding: ItemFeaturedCategoryBinding = DataBindingUtil.bind(holder.itemView)!!
-        binding.categoryData = item
+        val binding: ItemFeaturedCategoryBinding? = DataBindingUtil.bind(holder.itemView)
+        binding?.categoryData = item
     }
 
 }
