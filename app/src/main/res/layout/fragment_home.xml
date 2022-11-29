@@ -25,16 +25,16 @@
             <!--next feature-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/category_rv"
-                android:background="@color/white"
-                android:layout_marginBottom="@dimen/_8sdp"
-                android:visibility="visible"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/item_featured_category"
-                android:orientation="horizontal"
-                tools:itemCount="10"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_featured_category" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
