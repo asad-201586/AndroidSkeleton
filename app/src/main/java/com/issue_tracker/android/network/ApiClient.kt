@@ -17,7 +17,7 @@ class ApiClient {
 
     companion object {
 
-        const val BASE_URL = "https://app.othoba.com/"
+        const val BASE_URL = "https://api.github.com/"
 
         private fun getChuckerInterceptor(): ChuckerInterceptor {
             return ChuckerInterceptor.Builder(App.staticContext)

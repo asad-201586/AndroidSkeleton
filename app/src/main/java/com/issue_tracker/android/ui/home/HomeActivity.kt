@@ -26,9 +26,8 @@ class HomeActivity : KotlinBaseActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Timber.i("remote_data -------pref------ ${pref.get(PrefKeys.TOKEN, "null_found")}")
 
-        viewModel.getHomePageData("").observe(this) {
+        viewModel.getIssueList(1).observe(this) {
             when (it) {
                 is Resource.Loading -> Timber.i("remote_data ------------ Loading...")
                 is Resource.Error -> Timber.i("remote_data ------------ Error: ${it.errorMessage}")

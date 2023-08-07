@@ -6,9 +6,8 @@ import javax.inject.Inject
 class HomeRepo @Inject constructor(
     private val apiHitter: ApiInterface
 ) {
+    suspend fun getHomePageData() = apiHitter.getHomepageData()
 
-    private val token = "bWlzNTdAcHJhbmdyb3VwLmNvbTpJWE94N1NVUFYwYUE0Rjg4Nmg4bno5V2I2STUzNTNBQQ=="
-
-    suspend fun getHomePageData(customerId: String) = apiHitter.getHomepageData()
+    suspend fun getIssueList(page: Int) = apiHitter.getIssueList(page = page)
 
 }
