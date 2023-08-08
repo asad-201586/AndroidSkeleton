@@ -5,20 +5,20 @@ import androidx.lifecycle.liveData
 import com.issue_tracker.android.coroutine.Resource
 import com.issue_tracker.android.network.model.HomePageData
 import com.issue_tracker.android.network.model.IssueListResponse
-import com.issue_tracker.android.ui.home.repo.HomeRepo
+import com.issue_tracker.android.repo.AppRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepo: HomeRepo
+    private val appRepo: AppRepo
 ): ViewModel() {
 
     fun getHomePageData() = liveData<Resource<HomePageData>> {
         try {
             emit(Resource.Loading)
-            val avatar = homeRepo.getHomePageData()
+            val avatar = appRepo.getHomePageData()
             emit(Resource.Success(avatar))
         } catch (exception: Exception) {
             emit(Resource.Error(exception.localizedMessage))
@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(
     fun getIssueList(page: Int) = liveData<Resource<IssueListResponse>> {
         try {
             emit(Resource.Loading)
-            val issues = homeRepo.getIssueList(page)
+            val issues = appRepo.getIssueList(page)
             emit(Resource.Success(issues))
         } catch (exp: Exception) {
             emit(Resource.Error(exp.message))

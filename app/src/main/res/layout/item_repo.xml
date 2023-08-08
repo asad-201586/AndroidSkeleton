@@ -29,7 +29,7 @@
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Add module to login and register so that others can add features" />
+            tools:text="Android Skeleton" />
 
         <TextView
             android:id="@+id/textView"
@@ -45,28 +45,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/textTitle"
             tools:text="12:20" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatar"
-            imageUrl="@{data.user.avatarUrl}"
-            tools:src="@tools:sample/avatars[1]"
-            android:layout_marginTop="@dimen/_4sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"/>
-
         <TextView
-            tools:text="Abdullah Al Hasan"
+            tools:text="Private"
             android:text="@{data.user.login}"
             android:textColor="#9B9B9B"
             android:textSize="@dimen/_10ssp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:layout_marginStart="@dimen/_8sdp"
-            app:layout_constraintTop_toTopOf="@+id/avatar"
-            app:layout_constraintBottom_toBottomOf="@+id/avatar"
-            app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 

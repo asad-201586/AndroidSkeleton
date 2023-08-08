@@ -13,19 +13,24 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestProject"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.issue_tracker.android.ui.home.HomeActivity"
-            android:exported="true">
+            android:name=".ui.repos.RepositoryListActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.issue_tracker.android.ui.home.HomeActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

@@ -18,6 +18,7 @@ import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.style.UnderlineSpan
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +26,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.issue_tracker.android.R
 import java.util.*
 
 fun View.backPress() {
@@ -255,12 +258,15 @@ fun View.getMarginLayoutParams(): ViewGroup.MarginLayoutParams? {
 
 }
 
-fun String.underline(): SpannableString {
-    val content = SpannableString(this)
-    content.setSpan(UnderlineSpan(), 0, this.length, 0)
-    return content
-}
+fun Activity.customToast(message: String) {
+    val toastLayout: View = LayoutInflater.from(this).inflate(R.layout.custom_toast, null, false)
 
-fun TextView.underline() {
-    text = text.toString().underline()
+    val textView = toastLayout.findViewById(R.id.text_toast) as TextView
+    textView.text = message
+
+    val toast = Toast(this)
+    toast.duration = Toast.LENGTH_SHORT
+    toast.view = toastLayout
+    toast.setGravity(Gravity.BOTTOM, 0, 150)
+    toast.show()
 }
