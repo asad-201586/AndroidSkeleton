@@ -4,7 +4,7 @@
     <data>
         <variable
             name="data"
-            type="com.issue_tracker.android.network.model.IssueListResponse.IssueListResponseItem" />
+            type="com.issue_tracker.android.network.model.ReposResponse.ReposResponseItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,12 +13,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/bg_color"
         android:padding="@dimen/_16sdp"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textTitle"
-            android:text="@{data.title}"
+            android:text="@{data.name}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -47,7 +48,7 @@
 
         <TextView
             tools:text="Private"
-            android:text="@{data.user.login}"
+            android:text="@{data.visibility}"
             android:textColor="#9B9B9B"
             android:textSize="@dimen/_10ssp"
             android:ellipsize="end"

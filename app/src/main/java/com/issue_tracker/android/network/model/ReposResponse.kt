@@ -3,8 +3,8 @@ package com.issue_tracker.android.network.model
 
 import com.google.gson.annotations.SerializedName
 
-class ReposResponse : ArrayList<ReposResponse.IssueListResponseItem>(){
-    data class IssueListResponseItem(
+class ReposResponse : ArrayList<ReposResponse.ReposResponseItem>(){
+    data class ReposResponseItem(
         @SerializedName("name")
         val name: String? = "",
         @SerializedName("visibility") // private or public

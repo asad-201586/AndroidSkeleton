@@ -8,7 +8,7 @@ class AppRepo @Inject constructor(
 ) {
     suspend fun getHomePageData() = apiHitter.getHomepageData()
 
-    suspend fun getIssueList(page: Int) = apiHitter.getIssueList(page = page)
+    suspend fun getIssueList(page: Int,repoName: String) = apiHitter.getIssueList(page = page, repoName = repoName)
     suspend fun getRepos(page: Int) = apiHitter.getRepositories(page = page)
 
 }

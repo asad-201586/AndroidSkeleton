@@ -46,6 +46,12 @@ inline fun <reified T> Activity.openActivity(extras: Intent.() -> Unit = {}) {
     startActivity(intent)
 }
 
+inline fun <reified T> Context.openActivity(extras: Intent.() -> Unit = {}) {
+    val intent = Intent(this, T::class.java)
+    intent.extras()
+    startActivity(intent)
+}
+
 
 inline fun <reified T> Activity.openActivityWithFinish(extras: Intent.() -> Unit = {}) {
     val intent = Intent(this, T::class.java)
@@ -269,4 +275,10 @@ fun Activity.customToast(message: String) {
     toast.view = toastLayout
     toast.setGravity(Gravity.BOTTOM, 0, 150)
     toast.show()
+}
+
+infix fun View.onClick(function: (View) -> Unit) {
+    setOnClickListener {
+        function.invoke(it)
+    }
 }

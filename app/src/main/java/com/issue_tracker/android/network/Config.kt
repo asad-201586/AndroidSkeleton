@@ -1,6 +1,6 @@
 package com.issue_tracker.android.network
 
-const val GITHUB_TOKEN = "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" // WILL EXPIRE IN 5 SEPTEMBER, 2023
+const val GITHUB_TOKEN = "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"
 const val OWNER = "asad-201586"
 const val REPO = "AndroidSkeleton"
 

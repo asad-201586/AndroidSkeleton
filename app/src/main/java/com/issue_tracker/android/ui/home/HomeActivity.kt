@@ -19,6 +19,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : KotlinBaseActivity() {
+    private var repoName: String? = null
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: ActivityHomeBinding
     private val issueListAdapter: IssueListAdapter by lazy { IssueListAdapter() }
@@ -42,7 +43,7 @@ class HomeActivity : KotlinBaseActivity() {
 
     private fun fetchData() {
         binding.swipeRefresh.isRefreshing = false
-        viewModel.getIssueList(1).observe(this) {
+        viewModel.getIssueList(1,repoName?:"").observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     binding.progressbar.visible()
@@ -50,13 +51,16 @@ class HomeActivity : KotlinBaseActivity() {
                 }
                 is Resource.Error -> {
                     binding.progressbar.gone()
+                    binding.textNoDataFound.visible()
                     Timber.i("remote_data ------------ Error: ${it.errorMessage}")
                 }
                 is Resource.Success -> {
+                    binding.textNoDataFound.gone()
                     binding.progressbar.gone()
                     //Timber.i("remote_data ------------ Success: ${Gson().toJson(it)}")
                     if (it.data.isEmpty()) {
                         customToast("No data found")
+                        binding.textNoDataFound.visible()
                         return@observe
                     }
                     issueListAdapter.submitList(it.data)
@@ -67,10 +71,12 @@ class HomeActivity : KotlinBaseActivity() {
     }
 
     private fun initViews() {
+        repoName = intent.getStringExtra("repo_name")
         binding.issueRV.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@HomeActivity)
             adapter = issueListAdapter
         }
+        binding.textRepoName.text = repoName
     }
 }

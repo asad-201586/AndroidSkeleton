@@ -25,10 +25,10 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getIssueList(page: Int) = liveData<Resource<IssueListResponse>> {
+    fun getIssueList(page: Int,repoName: String) = liveData<Resource<IssueListResponse>> {
         try {
             emit(Resource.Loading)
-            val issues = appRepo.getIssueList(page)
+            val issues = appRepo.getIssueList(page,repoName)
             emit(Resource.Success(issues))
         } catch (exp: Exception) {
             emit(Resource.Error(exp.message))
