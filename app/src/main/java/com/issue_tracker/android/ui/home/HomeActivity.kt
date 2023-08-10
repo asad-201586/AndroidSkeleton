@@ -3,7 +3,6 @@ package com.issue_tracker.android.ui.home
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.issue_tracker.android.base.KotlinBaseActivity
 import com.issue_tracker.android.coroutine.Resource
 import com.issue_tracker.android.databinding.ActivityHomeBinding

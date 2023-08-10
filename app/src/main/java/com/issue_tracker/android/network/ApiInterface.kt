@@ -7,8 +7,6 @@ import retrofit2.http.*
 
 
 interface ApiInterface {
-    @GET(HOMEPAGE_DATA)
-    suspend fun getHomepageData(): HomePageData
 
     @GET("repos/$OWNER/{repo_name}/issues")
     suspend fun getIssueList(
@@ -29,5 +27,14 @@ interface ApiInterface {
         @Query("per_page") pageSize: Int = 20,
         @Query("page") page: Int
     ): ReposResponse
+
+    @GET(ISSUE_COMMENTS)
+    suspend fun getIssueComments(
+        @HeaderMap headers: Map<String,String> = hashMapOf(
+            "Authorization" to "Bearer $GITHUB_TOKEN",
+        ),
+        @Path("repo_name") repoName: String,
+        @Path("issue_number") issueNumber: String,
+    )
 }
 
